@@ -1,0 +1,1 @@
+Error saat generate campaign: Error code: 404 - {'error': {'message': 'No endpoints found for openchat/openchat-7b.', 'code': 404}, 'user_id': 'user_3BeLN6W53DTOqjYGWyp3ZErcLWd'}
