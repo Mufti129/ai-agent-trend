@@ -1,1 +1,1 @@
-Error saat generate campaign: Error code: 404 - {'error': {'message': 'No endpoints found for meta-llama/llama-3-8b-instruct:free.', 'code': 404}, 'user_id': 'user_3BeLN6W53DTOqjYGWyp3ZErcLWd'}
+Semua model gagal. Coba lagi nanti.
