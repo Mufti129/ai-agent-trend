@@ -19,7 +19,7 @@ def analyze_trend(data):
         """
 
         res = client.chat.completions.create(
-            model="openchat/openchat-7b",
+            model="meta-llama/llama-3-8b-instruct:free",
             messages=[{"role": "user", "content": prompt}]
         )
 
@@ -42,7 +42,7 @@ def generate_campaign(insight):
         """
 
         res = client.chat.completions.create(
-            model="openchat/openchat-7b",
+            model="meta-llama/llama-3-8b-instruct:free",
             messages=[{"role": "user", "content": prompt}]
         )
 
