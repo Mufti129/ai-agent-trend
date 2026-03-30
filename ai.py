@@ -19,7 +19,8 @@ def analyze_trend(data):
         """
 
         res = client.chat.completions.create(
-            model="mistralai/mistral-7b-instruct",
+            #model="mistralai/mistral-7b-instruct",
+            model="openchat/openchat-7b",
             messages=[{"role": "user", "content": prompt}]
         )
 
