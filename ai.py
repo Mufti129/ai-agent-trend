@@ -43,7 +43,8 @@ def generate_campaign(insight):
         """
 
         res = client.chat.completions.create(
-            model="mistralai/mistral-7b-instruct",
+            #model="mistralai/mistral-7b-instruct",
+            model="openchat/openchat-7b",
             messages=[{"role": "user", "content": prompt}]
         )
 
