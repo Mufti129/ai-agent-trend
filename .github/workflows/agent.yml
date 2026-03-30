@@ -2,12 +2,15 @@ name: AI Agent
 
 on:
   schedule:
-    - cron: "0 */6 * * *"  # jalan tiap 6 jam
+    - cron: "0 */6 * * *"
   workflow_dispatch:
 
 jobs:
   run-agent:
     runs-on: ubuntu-latest
+
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
       - name: Checkout repo
