@@ -6,23 +6,26 @@ client = OpenAI(
     base_url="https://openrouter.ai/api/v1"
 )
 
-PRIMARY_MODEL = "meta-llama/llama-3.3-70b-instruct:free"
-FALLBACK_MODEL = "meta-llama/llama-3-8b-instruct:free"
+# List model (urut dari terbaik ke fallback)
+MODELS = [
+    "meta-llama/llama-3.3-70b-instruct:free",
+    "google/gemma-7b-it:free",
+    "mistralai/mistral-7b-instruct:free"
+]
 
 def call_ai(prompt):
-    try:
-        res = client.chat.completions.create(
-            model=PRIMARY_MODEL,
-            messages=[{"role": "user", "content": prompt}]
-        )
-        return res.choices[0].message.content
-    except Exception as e:
-        print("Primary model gagal, pakai fallback...")
-        res = client.chat.completions.create(
-            model=FALLBACK_MODEL,
-            messages=[{"role": "user", "content": prompt}]
-        )
-        return res.choices[0].message.content
+    for model in MODELS:
+        try:
+            print(f"Coba model: {model}")
+            res = client.chat.completions.create(
+                model=model,
+                messages=[{"role": "user", "content": prompt}]
+            )
+            return res.choices[0].message.content
+        except Exception as e:
+            print(f"Model gagal: {model} | Error: {str(e)}")
+
+    return "Semua model gagal. Coba lagi nanti."
 
 
 def analyze_trend(data):
